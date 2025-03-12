@@ -1,0 +1,50 @@
+//Method 1
+void rev(stack<int>& st){
+        if(st.empty()){
+            return;
+        }
+        int a=st.top();
+        st.pop();
+        rev(st);
+        stack<int> temp;
+        while(!st.empty()){
+            int b=st.top();
+            st.pop();
+            temp.push(b);
+        }
+        st.push(a);
+        while(!temp.empty()){
+            int b=temp.top();
+            temp.pop();
+            st.push(b);
+        }
+        
+    }
+    void Reverse(stack<int> &St){
+        rev(St);
+    }
+//Method 2
+void insert(stack<int>& st,int a){
+        if(st.empty()){
+            st.push(a);
+            return;
+        }
+        int b=st.top();
+        st.pop();
+        insert(st,a);
+        st.push(b);
+    }
+    void rev(stack<int>& st){
+        if(st.empty()){
+            return;
+        }
+        int a=st.top();
+        st.pop();
+        rev(st);
+        stack<int> temp;
+        insert(st,a);
+        
+    }
+    void Reverse(stack<int> &St){
+        rev(St);
+    }
